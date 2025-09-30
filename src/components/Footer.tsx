@@ -1,0 +1,71 @@
+import { Facebook, Instagram, Twitter, Mail, Phone } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer id="kontak" className="bg-card border-t border-border py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Brand */}
+          <div>
+            <h3 className="text-2xl font-bold text-gradient mb-4">GameBoost</h3>
+            <p className="text-muted-foreground mb-4">
+              Layanan joki rank dan top up game terpercaya dengan harga terjangkau dan proses cepat.
+            </p>
+          </div>
+
+          {/* Kontak */}
+          <div>
+            <h4 className="text-lg font-bold mb-4">Hubungi Kami</h4>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Phone className="h-4 w-4" />
+                <span>+62 812-3456-7890</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                <Mail className="h-4 w-4" />
+                <span>info@gameboost.com</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Metode Pembayaran */}
+          <div>
+            <h4 className="text-lg font-bold mb-4">Metode Pembayaran</h4>
+            <div className="flex flex-wrap gap-2">
+              {["QRIS", "DANA", "OVO", "GoPay", "Bank Transfer"].map((method) => (
+                <span 
+                  key={method}
+                  className="px-3 py-1 bg-muted rounded-md text-sm hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                >
+                  {method}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Social Media & Copyright */}
+        <div className="pt-8 border-t border-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground text-sm">
+              © 2024 GameBoost. All rights reserved.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-secondary transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
