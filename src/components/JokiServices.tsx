@@ -45,7 +45,7 @@ const JokiServices = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
           {jokiPackages.map((item, index) => {
             const IconComponent = item.icon;
             return (
