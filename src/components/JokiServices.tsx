@@ -38,9 +38,9 @@ const JokiServices = () => {
                 className="group hover:border-primary transition-all duration-300 hover:neon-glow-cyan bg-card/80 backdrop-blur-sm"
               >
                 <CardHeader>
-                  <IconComponent className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                  <CardTitle className="text-2xl">{item.game}</CardTitle>
-                  <CardDescription>Pilih paket joki sesuai kebutuhan</CardDescription>
+                  <IconComponent className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform mx-auto" />
+                  <CardTitle className="text-2xl text-center">{item.game}</CardTitle>
+                  <CardDescription className="text-center">Pilih paket joki sesuai kebutuhan</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {item.packages.map((pkg, pkgIndex) => (
