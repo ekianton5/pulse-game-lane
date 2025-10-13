@@ -45,7 +45,17 @@ const Hero = () => {
               <Zap className="mr-2 h-5 w-5" />
               Order Sekarang
             </Button>
-            <Button variant="outline" size="lg" className="text-lg border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              onClick={() => {
+                document.getElementById('topup')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+            >
               Lihat Harga
             </Button>
           </div>
