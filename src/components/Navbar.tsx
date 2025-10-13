@@ -19,7 +19,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-gradient">GameBoost</span>
+            <span className="text-2xl font-bold text-gradient">ArenaGame</span>
           </div>
 
           {/* Desktop Menu */}

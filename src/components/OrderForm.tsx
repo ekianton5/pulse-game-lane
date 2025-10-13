@@ -46,7 +46,7 @@ Layanan: ${formData.service}
 Paket: ${formData.package}
 Pembayaran: ${formData.payment}`;
 
-    const whatsappUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/62895701071431?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
     
     toast.success("Redirecting ke WhatsApp...");

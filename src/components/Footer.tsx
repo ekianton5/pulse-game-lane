@@ -19,11 +19,11 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" />
-                <span>+62 812-3456-7890</span>
+                <span>+62 895-7010-71431</span>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" />
-                <span>info@gameboost.com</span>
+                <span>info@arenagame.com</span>
               </div>
             </div>
           </div>
