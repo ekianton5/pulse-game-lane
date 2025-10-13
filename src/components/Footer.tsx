@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold text-gradient mb-4">GameBoost</h3>
+            <h3 className="text-2xl font-bold text-gradient mb-4">ArenaGame</h3>
             <p className="text-muted-foreground mb-4">
               Layanan joki rank dan top up game terpercaya dengan harga terjangkau dan proses cepat.
             </p>
@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © 2024 GameBoost. All rights reserved.
+              © 2024 ArenaGame. All rights reserved.
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
