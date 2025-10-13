@@ -42,9 +42,7 @@ const PopularGames = () => {
         </div>
 
         <div className="text-center mt-8">
-          <Button variant="neon" size="lg">
-            Lihat Semua Game
-          </Button>
+         
         </div>
       </div>
     </section>

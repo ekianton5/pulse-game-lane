@@ -12,24 +12,8 @@ const jokiPackages = [
       { name: "Mythic → Mythic Glory", price: "100.000", duration: "3-5 hari" },
     ],
   },
-  {
-    game: "Valorant",
-    icon: Star,
-    packages: [
-      { name: "Silver → Gold", price: "50.000", duration: "2-3 hari" },
-      { name: "Gold → Platinum", price: "75.000", duration: "3-4 hari" },
-      { name: "Platinum → Diamond", price: "150.000", duration: "4-6 hari" },
-    ],
-  },
-  {
-    game: "PUBG Mobile",
-    icon: Crown,
-    packages: [
-      { name: "Diamond → Crown", price: "40.000", duration: "2-3 hari" },
-      { name: "Crown → Ace", price: "80.000", duration: "3-5 hari" },
-      { name: "Ace → Conqueror", price: "200.000", duration: "5-7 hari" },
-    ],
-  },
+ 
+ 
 ];
 
 const JokiServices = () => {
