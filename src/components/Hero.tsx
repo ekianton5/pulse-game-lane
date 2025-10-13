@@ -31,7 +31,17 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button variant="neon" size="lg" className="text-lg">
+            <Button 
+              variant="neon" 
+              size="lg" 
+              className="text-lg"
+              onClick={() => {
+                document.getElementById('order-form')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }}
+            >
               <Zap className="mr-2 h-5 w-5" />
               Order Sekarang
             </Button>
