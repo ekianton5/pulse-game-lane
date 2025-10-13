@@ -46,11 +46,8 @@ const Footer = () => {
 
         {/* Social Media & Copyright */}
         <div className="pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm">
-              © 2024 GameBoost. All rights reserved.
-            </p>
-            <div className="flex gap-4">
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex gap-4 justify-center">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
@@ -61,6 +58,9 @@ const Footer = () => {
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
+            <p className="text-muted-foreground text-sm text-center">
+              © 2024 ArenaGame. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
