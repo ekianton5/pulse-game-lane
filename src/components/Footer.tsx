@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Music, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
+import tiktokLogo from "@/assets/tiktok-logo.png";
 
 const Footer = () => {
   return (
@@ -55,7 +56,7 @@ const Footer = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
-                <Music className="h-5 w-5" />
+                <img src={tiktokLogo} alt="TikTok" className="h-5 w-5" />
               </a>
             </div>
             <p className="text-muted-foreground text-sm text-center">
