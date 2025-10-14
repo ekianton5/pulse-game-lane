@@ -29,13 +29,14 @@ const JokiServices = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
+        <div className="flex justify-center">
+          <div className="w-full max-w-5xl flex flex-wrap justify-center gap-6 px-4">
           {jokiPackages.map((item, index) => {
             const IconComponent = item.icon;
             return (
               <Card 
                 key={index}
-                className="group hover:border-primary transition-all duration-300 hover:neon-glow-cyan bg-card/80 backdrop-blur-sm"
+                className="group hover:border-primary transition-all duration-300 hover:neon-glow-cyan bg-card/80 backdrop-blur-sm w-80 sm:w-96 lg:w-[26rem]"
               >
                 <CardHeader>
                   <IconComponent className="h-12 w-12 text-primary mb-4 group-hover:scale-110 transition-transform mx-auto" />
@@ -64,6 +65,7 @@ const JokiServices = () => {
               </Card>
             );
           })}
+          </div>
         </div>
       </div>
     </section>
