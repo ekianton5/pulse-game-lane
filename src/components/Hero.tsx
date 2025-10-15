@@ -1,8 +1,35 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Zap, Shield, Clock } from "lucide-react";
 import heroBanner from "@/assets/hero-banner.jpg";
+import { supabase } from "@/integrations/supabase/client";
 
 const Hero = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    checkAuth();
+    
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      checkAuth();
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const checkAuth = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    setIsLoggedIn(!!session);
+  };
+
+  const handleOrderClick = () => {
+    if (isLoggedIn) {
+      window.location.href = "/order";
+    } else {
+      window.location.href = "/auth";
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background Image with Overlay */}
@@ -35,12 +62,7 @@ const Hero = () => {
               variant="neon" 
               size="lg" 
               className="text-lg"
-              onClick={() => {
-                document.getElementById('order-form')?.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }}
+              onClick={handleOrderClick}
             >
               <Zap className="mr-2 h-5 w-5" />
               Order Sekarang
