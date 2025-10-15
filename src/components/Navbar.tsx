@@ -1,9 +1,55 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Menu, X, User, LogOut, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    checkAuth();
+    
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      checkAuth();
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const checkAuth = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    setIsLoggedIn(!!session);
+
+    if (session) {
+      const { data: roles } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", session.user.id)
+        .eq("role", "admin")
+        .single();
+      
+      setIsAdmin(!!roles);
+    } else {
+      setIsAdmin(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/");
+  };
+
+  const handleOrderClick = () => {
+    if (isLoggedIn) {
+      navigate("/order");
+    } else {
+      navigate("/auth");
+    }
+  };
 
   const menuItems = [
     { name: "Home", href: "#home" },
@@ -33,9 +79,38 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="neon" size="sm">
-              Order Sekarang
-            </Button>
+            
+            {isLoggedIn ? (
+              <>
+                {isAdmin && (
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => navigate("/admin")}
+                  >
+                    <Shield className="h-4 w-4 mr-2" />
+                    Admin
+                  </Button>
+                )}
+                <Button variant="neon" size="sm" onClick={handleOrderClick}>
+                  Order Sekarang
+                </Button>
+                <Button variant="outline" size="sm" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button variant="neon" size="sm" onClick={handleOrderClick}>
+                  Order Sekarang
+                </Button>
+                <Button variant="outline" size="sm" onClick={() => navigate("/auth")}>
+                  <User className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -63,9 +138,74 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="neon" size="sm" className="mt-4 w-full">
-              Order Sekarang
-            </Button>
+            
+            {isLoggedIn ? (
+              <>
+                {isAdmin && (
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="mt-4 w-full"
+                    onClick={() => {
+                      navigate("/admin");
+                      setIsOpen(false);
+                    }}
+                  >
+                    <Shield className="h-4 w-4 mr-2" />
+                    Admin Dashboard
+                  </Button>
+                )}
+                <Button 
+                  variant="neon" 
+                  size="sm" 
+                  className="mt-4 w-full"
+                  onClick={() => {
+                    handleOrderClick();
+                    setIsOpen(false);
+                  }}
+                >
+                  Order Sekarang
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="mt-4 w-full"
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button 
+                  variant="neon" 
+                  size="sm" 
+                  className="mt-4 w-full"
+                  onClick={() => {
+                    handleOrderClick();
+                    setIsOpen(false);
+                  }}
+                >
+                  Order Sekarang
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="mt-4 w-full"
+                  onClick={() => {
+                    navigate("/auth");
+                    setIsOpen(false);
+                  }}
+                >
+                  <User className="h-4 w-4 mr-2" />
+                  Login
+                </Button>
+              </>
+            )}
           </div>
         )}
       </div>
