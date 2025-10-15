@@ -55,8 +55,8 @@ const Footer = () => {
               <a href="#" className="text-muted-foreground hover:text-secondary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="hover:opacity-80 transition-opacity">
-                <img src={tiktokLogo} alt="TikTok" className="h-5 w-5" />
+              <a href="#" aria-label="TikTok" className="hover:opacity-80 transition-opacity">
+                <img src={tiktokLogo} alt="Logo TikTok" className="h-5 w-5 object-contain invert" loading="lazy" />
               </a>
             </div>
             <p className="text-muted-foreground text-sm text-center">
