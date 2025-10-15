@@ -54,12 +54,15 @@ const Footer = () => {
               <a href="#" className="text-muted-foreground hover:text-secondary transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a href="#" className="text-white hover:text-accent transition-colors">
+                {/* White TikTok-style glyph (single-color) */}
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M17.5 3.75a4.5 4.5 0 0 1-4.5-4.5v9.75a4.5 4.5 0 1 1-4.5 4.5 4.5 4.5 0 0 0 4.5-4.5V3.75h4.5z" transform="translate(1 1)" />
+                </svg>
               </a>
             </div>
             <p className="text-muted-foreground text-sm text-center">
-              © 2024 ArenaGame. All rights reserved.
+              © 2025 ArenaGame. All rights reserved.
             </p>
           </div>
         </div>
