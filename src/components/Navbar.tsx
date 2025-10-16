@@ -105,10 +105,7 @@ const Navbar = () => {
                 <Button variant="neon" size="sm" onClick={handleOrderClick}>
                   Order Sekarang
                 </Button>
-                <Button variant="outline" size="sm" onClick={() => navigate("/auth")}>
-                  <User className="h-4 w-4 mr-2" />
-                  Login
-                </Button>
+        
               </>
             )}
           </div>
